@@ -18,12 +18,7 @@ export function Transactions(){
           <td>Venda</td>
           <td>30/07/2003</td>
         </tr>
-        <tr>
-          <td width="50%">Hamburguer</td>
-          <td><PriceHighlight variant="outcome">- R$ 12.000,00</PriceHighlight></td>
-          <td>Venda</td>
-          <td>30/07/2003</td>
-        </tr>
+
       </tbody>
     </TransactionsTable>
     </TransactionsContainer>
