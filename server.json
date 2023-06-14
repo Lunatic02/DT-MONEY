@@ -9,6 +9,22 @@
       "createdAt": "2023-06-13T22:47:22.915Z"
     },
     {
+      "id": 3,
+      "description": "Lanchonete",
+      "type": "outcome",
+      "category": "Alimentação",
+      "price": 130,
+      "createdAt": "2023-06-13T22:47:22.915Z"
+    },
+    {
+      "id": 4,
+      "description": "Salario da empresa",
+      "type": "income",
+      "category": "Salario",
+      "price": 10000,
+      "createdAt": "2023-06-13T22:47:22.915Z"
+    },
+    {
       "id": 2,
       "description": "Hamburguer",
       "type": "outcome",
