@@ -1,9 +1,36 @@
+import { zodResolver } from '@hookform/resolvers/zod'
 import * as Dialog from '@radix-ui/react-dialog'
 import { ArrowCircleDown, ArrowCircleUp,  X } from 'phosphor-react'
+import { useForm } from 'react-hook-form'
+import * as z from 'zod'
+
 import { CloseButton, Content, Overlay, TransactionType, TransactionTypeButton } from './styles'
 
+const newTransactionFormSchema = z.object({
+  description: z.string(),
+  price: z.number(),
+  category: z.string(),
+  // type: z.enum(['income', 'outcome']),
+});
+
+type newTransactionFormInputs = z.infer<typeof newTransactionFormSchema>;
 
 export function NewTransactionModal(){
+
+  const {
+    register,
+    handleSubmit,
+    formState: { isSubmitting }
+  } = useForm<newTransactionFormInputs>({
+    resolver: zodResolver(newTransactionFormSchema),
+  })
+
+  async function handleCreateNewTransaction(data: newTransactionFormInputs) {
+    await new Promise(resolve => setTimeout(resolve, 2000));
+
+    console.log(data);
+  }
+
   return(
     <Dialog.Portal>
       <Overlay />
@@ -13,12 +40,28 @@ export function NewTransactionModal(){
           <X size={24}/>
         </CloseButton>
 
-        <form action="">
-          <input type="text" placeholder='Descrição' required/>
-          <input type="number" placeholder='Preço' required/>
-          <input type="string" placeholder='Categoria' required/>
+        <form onSubmit={handleSubmit(handleCreateNewTransaction)}>
+       
+          <input
+            type="text"
+            placeholder="Descrição"
+            required
+            {...register('description')}
+          />
+          <input
+            type="number"
+            placeholder="Preço"
+            required
+            {...register('price', { valueAsNumber: true })}
+          />
+          <input
+            type="text"
+            placeholder="Categoria"
+            required
+            {...register('category')}
+          />
 
-          <TransactionType>
+          {/* <TransactionType>
             <TransactionTypeButton variant='income' value='income'>
               <ArrowCircleUp size={24}/>
               Entrada
@@ -27,9 +70,9 @@ export function NewTransactionModal(){
               <ArrowCircleDown size={24}/>
               Saída
             </TransactionTypeButton>
-          </TransactionType>
+          </TransactionType> */}
 
-          <button type='submit'>Cadastrar</button>
+          <button disabled={isSubmitting} type='submit'>Cadastrar</button>
         </form>
        
       </Content>

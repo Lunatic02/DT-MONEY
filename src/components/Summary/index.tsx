@@ -3,7 +3,7 @@ import { ArrowCircleDown, ArrowCircleUp, CurrencyDollar } from 'phosphor-react'
 import { useSummary } from "../../hooks/useSummary";
 
 export function Summary(){
-  const summary = useSummary();
+  const summary = useSummary(); 
 
   return(
     <SummaryContainer>
