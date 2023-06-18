@@ -31,6 +31,22 @@
       "category": "Alimentação",
       "price": 60,
       "createdAt": "2023-06-13T22:47:22.915Z"
+    },
+    {
+      "description": "Churrasco domingo casa candido",
+      "price": 100,
+      "category": "Diversão",
+      "type": "income",
+      "createdAt": "2023-06-18T12:29:37.508Z",
+      "id": 5
+    },
+    {
+      "description": "Iourguete",
+      "price": 5,
+      "category": "Alimentação",
+      "type": "outcome",
+      "createdAt": "2023-06-18T12:47:08.179Z",
+      "id": 6
     }
   ]
 }
